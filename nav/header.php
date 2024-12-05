@@ -1,7 +1,5 @@
-<!-- header.php -->
 <?php
-// Start session
-session_start();
+session_start(); // Start session
 
 // Check if user is logged in
 if (!isset($_SESSION['id'])) {
@@ -12,6 +10,7 @@ if (!isset($_SESSION['id'])) {
 // Include database connection
 include 'db/database.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

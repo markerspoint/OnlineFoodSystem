@@ -27,22 +27,6 @@
             color: #ccc;
         }
 
-        .rice-meals-section .order-button {
-            background-color: #ff4d4d;
-            border-color: #ff4d4d;
-            color: #fff;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-            /* Add margin to create space below text */
-            display: inline-block;
-            margin-left: 400px;
-        }
-
-        .rice-meals-section .order-button:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
-        }
-
         .rice-meals-image {
             max-width: 100%;
             height: auto;
@@ -80,23 +64,10 @@
             margin-left: 20px;
         }
 
-        /* Order button styles */
-        .carousel-item .order-button {
-            background-color: #ff4d4d;
-            /* Red button */
-            border-color: #ff4d4d;
-            /* Red border */
-            color: white;
-            transition: background-color 0.3s ease;
+        .carousel img {
+            width: auto; /* Or any other width that fits your carousel */
+            height: auto;
         }
-
-        .carousel-item .order-button:hover {
-            background-color: #c82333;
-            /* Darker red on hover */
-            border-color: #bd2130;
-            /* Darker red border on hover */
-        }
-
 
         /* If you want a smooth gradient for the carousel background */
         .carousel-item {
@@ -118,7 +89,6 @@
                             <h2>Pork Silog</h2>
                             <p>Flavorful marinated pork, garlic fried rice, and a fried egg, a hearty and satisfying
                                 Filipino breakfast.</p>
-                            <a href="#" class="btn btn-lg order-button">Order now</a>
                         </div>
                         <div class="col-lg-6 text-center">
                             <img src="cImage/porksilog.png" alt="Rice Meals" class="rice-meals-image">
@@ -132,7 +102,6 @@
                             <h2>Chicken Silog</h2>
                             <p>Tender chicken, garlic fried rice, and a fried egg, a comforting Filipino breakfast
                                 staple.</p>
-                            <a href="#" class="btn btn-lg order-button align-self-start">Order now</a>
                         </div>
                         <div class="col-lg-6 text-center">
                             <img src="cImage/chicksilog.png" alt="Rice Meals" class="rice-meals-image">
@@ -146,7 +115,6 @@
                             <h2>Bacon Silog</h2>
                             <p>Crispy bacon, garlic fried rice, and a fried egg, a classic Filipino breakfast with a
                                 savory crunch.</p>
-                            <a href="#" class="btn btn-lg order-button">Order now</a>
                         </div>
                         <div class="col-lg-6 text-center">
                             <img src="cImage/baconsilog.png" alt="Rice Meals" class="rice-meals-image">
