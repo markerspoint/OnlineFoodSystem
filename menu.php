@@ -78,13 +78,41 @@ $result = $stmt->get_result();
                 <div id="itemDetails">
                     <p><strong>Item:</strong> <span id="itemName"></span></p>
                     <p><strong>Price:</strong> ₱<span id="itemPrice"></span></p>
-                    <img id="itemImage" src="" alt="Item image" class="img-fluid"
-                        style="max-width: 100%; height: auto;">
+                    <img id="itemImage" src="" alt="Item image" class="img-fluid" style="max-width: 100%; height: auto;">
                 </div>
+
+                <!-- Quantity Selector -->
+                <div class="d-flex justify-content-between mt-3">
+                    <label for="quantity" class="form-label">Quantity:</label>
+                    <div class="d-flex align-items-center">
+                        <button type="button" class="btn btn-secondary" id="decreaseQty">-</button>
+                        <input type="number" id="quantity" class="form-control mx-2" value="1" min="1" style="width: 60px;">
+                        <button type="button" class="btn btn-secondary" id="increaseQty">+</button>
+                    </div>
+                </div>
+                
                 <div class="d-flex justify-content-between mt-3">
                     <button type="button" class="btn btn-success" id="addToCartBtn">Add to Cart</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Success!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="successMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
             </div>
         </div>
     </div>
@@ -112,30 +140,67 @@ $result = $stmt->get_result();
 <!-- JavaScript for handling Add to Cart Modal -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-        const itemNameElement = document.getElementById('itemName');
-        const itemPriceElement = document.getElementById('itemPrice');
-        const itemImageElement = document.getElementById('itemImage');
-        const addToCartBtn = document.getElementById('addToCartBtn');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    const itemNameElement = document.getElementById('itemName');
+    const itemPriceElement = document.getElementById('itemPrice');
+    const itemImageElement = document.getElementById('itemImage');
+    const quantityInput = document.getElementById('quantity');
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    const decreaseQtyButton = document.getElementById('decreaseQty');
+    const increaseQtyButton = document.getElementById('increaseQty');
+    
+    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+    const successMessageElement = document.getElementById('successMessage');
+    
+    // Success modal - OK button to close both modals
+    const successOkButton = document.querySelector('#successModal .btn-primary');
+    const addToCartModal = new bootstrap.Modal(document.getElementById('addToCartModal'));
 
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const itemName = this.getAttribute('data-name');
-                const itemPrice = this.getAttribute('data-price');
-                const itemImage = this.getAttribute('data-image');
+    // Add event listener to "OK" button of the success modal
+    successOkButton.addEventListener('click', function () {
+        // Close both modals
+        addToCartModal.hide();
+        successModal.hide();
+    });
 
-                itemNameElement.textContent = itemName;
-                itemPriceElement.textContent = itemPrice;
-                itemImageElement.src = itemImage;
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const itemName = this.getAttribute('data-name');
+            const itemPrice = this.getAttribute('data-price');
+            const itemImage = this.getAttribute('data-image');
 
-                // Optionally, handle adding the item to a cart (local storage or session)
-                addToCartBtn.onclick = function () {
-                    // Code to add item to cart (e.g., store in session/local storage)
-                    alert(itemName + " has been added to your cart!");
-                    // Close the modal after adding to cart
-                    $('#addToCartModal').modal('hide');
-                };
+            itemNameElement.textContent = itemName;
+            itemPriceElement.textContent = itemPrice;
+            itemImageElement.src = itemImage;
+
+            // Reset quantity to 1 each time a new item is added to cart
+            quantityInput.value = 1;
+
+            // Handle quantity increase and decrease
+            increaseQtyButton.addEventListener('click', function () {
+                quantityInput.value = parseInt(quantityInput.value) + 1;
             });
+
+            decreaseQtyButton.addEventListener('click', function () {
+                if (parseInt(quantityInput.value) > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                }
+            });
+
+            // Handle the 'Add to Cart' action
+            addToCartBtn.onclick = function () {
+                const quantity = quantityInput.value;
+                const message = `${quantity} ${itemName}(s) have been added to your cart!`;
+
+                // Show the success message modal
+                successMessageElement.textContent = message;
+                successModal.show();
+
+                // Close the add to cart modal
+                addToCartModal.hide();
+            };
         });
     });
+});
+
 </script>
