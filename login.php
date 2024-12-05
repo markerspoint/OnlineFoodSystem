@@ -140,12 +140,12 @@ if (!empty($error_message)) {
         </div>
         <p class="text-center">or:</p>
         <div class="form-outline mb-3">
-            <input type="text" name="username" id="loginUsername" class="form-control" required />
-            <label class="form-label" for="loginUsername">Username</label>
+            <input type="text" name="username" id="loginUsername" class="form-control" placeholder="Enter Username" required />
+            <label class="form-label" for="loginUsername"></label>
         </div>
         <div class="form-outline mb-3">
-            <input type="password" name="password" id="loginPassword" class="form-control" required />
-            <label class="form-label" for="loginPassword">Password</label>
+            <input type="password" name="password" id="loginPassword" class="form-control" placeholder="Enter Password" required />
+            <label class="form-label" for="loginPassword"></label>
         </div>
         <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" value="" id="rememberMe" />

@@ -98,20 +98,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <p class="text-center">or:</p>
         <div class="form-outline mb-3">
-            <input type="text" name="username" id="registerUsername" class="form-control" required />
-            <label class="form-label" for="registerUsername">Username</label>
+            <input type="text" name="username" id="registerUsername" class="form-control" placeholder="Enter Username" required />
+            <label class="form-label" for="registerUsername"></label>
         </div>
         <div class="form-outline mb-3">
-            <input type="email" name="email" id="registerEmail" class="form-control" required />
-            <label class="form-label" for="registerEmail">Email</label>
+            <input type="email" name="email" id="registerEmail" class="form-control" placeholder="Enter Email" required />
+            <label class="form-label" for="registerEmail"></label>
         </div>
         <div class="form-outline mb-3">
-            <input type="password" name="password" id="registerPassword" class="form-control" required />
-            <label class="form-label" for="registerPassword">Password</label>
+            <input type="password" name="password" id="registerPassword" class="form-control" placeholder="Enter Password" required />
+            <label class="form-label" for="registerPassword"></label>
         </div>
         <div class="form-outline mb-3">
-            <input type="password" name="confirmPassword" id="registerConfirmPassword" class="form-control" required />
-            <label class="form-label" for="registerConfirmPassword">Repeat password</label>
+            <input type="password" name="confirmPassword" id="registerConfirmPassword" class="form-control" placeholder="Verify Password" required />
+            <label class="form-label" for="registerConfirmPassword"></label>
         </div>
         <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" value="" id="termsAgreement" required />
