@@ -2,6 +2,6 @@
 
 <?php include "home.php"; ?>
 
-<?php include "menu.php"; ?>
+<?php include "menuindex.php"; ?>
 
 <?php include "nav/footer.php"; ?>

@@ -1,4 +1,3 @@
-<?php include "nav/header.php"; ?>
 
 <?php
 // Database connection (Assuming $conn is your connection variable)
@@ -206,4 +205,3 @@ $result = $stmt->get_result();
 
 </script>
 
-<?php include "nav/footer.php"; ?>
