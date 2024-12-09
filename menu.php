@@ -133,9 +133,11 @@ $result = $stmt->get_result();
     }
 
     img {
-        width: 250px;
+        width: 250px; 
         height: 250px;
     }
+
+
 </style>
 
 <!-- JavaScript for handling Add to Cart Modal -->
