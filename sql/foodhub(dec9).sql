@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2024 at 10:11 PM
+-- Generation Time: Dec 09, 2024 at 02:26 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `foodhub`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`, `created_at`) VALUES
+(1, 'mark', '$2y$10$PWZYoexrrZbLnFYg4CQfHuibgHfvPfokI.3tOc5fT/dDF7DQGzam2', '2024-12-09 13:01:31');
 
 -- --------------------------------------------------------
 
@@ -134,6 +154,15 @@ CREATE TABLE `reviews` (
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `user_id`, `menu_item_id`, `rating`, `comment`, `created_at`) VALUES
+(1, NULL, 7, 5, 'gwapo ko- ken 2024', NULL),
+(2, NULL, 7, 4, 'sdfdf', NULL),
+(3, NULL, 9, 5, 'KEN1 - Gwapo jgvjhjhgjgjhgjhgh', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -156,11 +185,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `fullname`, `address`, `phone`, `email`, `password`, `created_at`) VALUES
-(20, 'markian', 'Mark Ian Dela Cruz', 'Brgy. 2, Sipalay City, Negros Occidental', '09670440885', 'wendelleutken@eut.com', '$2y$10$VH1gX3JL0LHB.hNMp.Imq.nBmOiYbeo5jMkGv.WL8JJoGueG46xii', '2024-12-05 04:17:07');
+(20, 'markian', 'Mark Ian Dela Cruz', 'Brgy. 2, Sipalay City, Negros Occidental', '09670440885', 'wendelleutken@eut.com', '$2y$10$VH1gX3JL0LHB.hNMp.Imq.nBmOiYbeo5jMkGv.WL8JJoGueG46xii', '2024-12-05 04:17:07'),
+(23, 'ken', NULL, NULL, NULL, 'robertkienthusain17@gmail.com', '$2y$10$RLiuYMmGDl8OV85cUMlR7epZKrHBk/cJfcfaPWU6FUXBU13cs2uOm', '2024-12-09 06:22:21'),
+(24, 'ken1', NULL, NULL, NULL, 'robertkienthusafgfin17@gmail.com', '$2y$10$ibKmGXPSYgtcQ31D2UTFI.wbqyBFbRuVAYwQBw/pbIUSfcjIRLI7K', '2024-12-09 06:39:04');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `categories`
@@ -224,6 +262,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -263,13 +307,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
