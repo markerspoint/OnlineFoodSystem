@@ -4,6 +4,6 @@
 
 <?php include "menuindex.php"; ?>
 
-<?php include "about.php"; ?>
+<?php include "aboutindex.php"; ?>
 
 <?php include "nav/footer.php"; ?>

@@ -140,7 +140,7 @@ include 'db/database.php';
                 <?php if(isset($_SESSION['id'])): ?>
                     <div class="dropdown">
                         <button class="btn nav-link dropdown-toggle user-profile" type="button" data-bs-toggle="dropdown">
-                            <img src="cImage/user-solid.svg" alt="Profile" >
+                            <img src="images/icon.svg" alt="Profile" >
                             <?= htmlspecialchars($_SESSION['username']) ?>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">

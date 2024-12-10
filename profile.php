@@ -42,7 +42,7 @@ $user = $result->fetch_assoc();
     <div class="profile-container bg-dark p-4 rounded">
       <div class="profile-sidebar bg-danger text-white text-center p-4 rounded-start">
         <div class="profile-avatar">
-          <img src="cImage/user-solid.svg" alt="Profile Picture" class="rounded-circle mb-3">
+        <img src="images/icon.svg" alt="Profile Picture" class="rounded-circle mb-3" style="width: 250px; height: 250px;">
         </div>
         <h4><?= htmlspecialchars($user['username']) ?></h4>
       </div>

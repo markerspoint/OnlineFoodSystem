@@ -1,5 +1,3 @@
-<?php include "nav/header.php"; ?>
-
 <?php
 include 'db/database.php';
 
@@ -34,7 +32,7 @@ $menuitems_result = $conn->query($menuitems_query);
                     ?>
                     <div class="col">
                         <div class="testimonials mt-4" data-id="<?php echo $row['id']; ?>" 
-                             style="border: 1px solid #1e1e1e; border-radius: 10px; padding: 20px; background-color: #1e1e1e;">
+                             style="border: 1px solid #1e1e1e; border-radius: 10px; padding: 20px; background-color: #1e1e1e; transition: transform 0.3s, box-shadow 0.3s;">
                             <div class="d-flex align-items-center">
                                 <img src="images/icon.svg" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                                 <div class="ms-2 mb-2">
@@ -116,6 +114,7 @@ $menuitems_result = $conn->query($menuitems_query);
     border-color: #ff4d4d; /* Match the border color */
     color: #fff; /* Set text color to white for contrast */
     }
+
 </style>
 
 <script>
@@ -197,5 +196,3 @@ $menuitems_result = $conn->query($menuitems_query);
 
 
 </script>
-
-<?php include "nav/footer.php"; ?>
